@@ -1,5 +1,6 @@
 import React from 'react'
 import { navigate } from "gatsby-link"
+import $ from 'jquery'
 
 function encode(data) {
     return Object.keys(data)
@@ -9,16 +10,19 @@ function encode(data) {
 
 const handleSubmit = e => {
     e.preventDefault();
-    const form = e.target;
-    console.log(e);
+    const form      = e.target
+    const name      = $("#name").val();
+    const email     = $("#email").val();
+    const message   = $("#message").val();
+    console.log(message);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": form.getAttribute("name"),
-        "name": form.getElementById("name"),
-        "email": form.getElementById("email"),
-        "message": form.getElementById("message")
+        "name": name,
+        "email": email,
+        "message": message
       })
     })
       .then(() => navigate(form.getAttribute("action")))
@@ -29,7 +33,7 @@ const Contact = (props) => (
     <section id="contact">
         <div className="inner">
             <section>
-                <form name="contact" method="POST" netlify-honeypot="bot-field" action="/success/" data-netlify="true" onSubmit={handleSubmit}>
+                <form id="contact" name="contact" method="POST" netlify-honeypot="bot-field" action="/success/" data-netlify="true" onSubmit={handleSubmit}>
                     <p className="hidden">
                         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
                         <input type="hidden" name="form-name" value="contact" />
