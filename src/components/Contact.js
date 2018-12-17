@@ -1,12 +1,35 @@
 import React from 'react'
+import { navigateTo } from "gatsby-link"
+
+function encode(data) {
+    return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
+
+const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...form
+      })
+    })
+      .then(() => navigateTo(form.getAttribute("action")))
+      .catch(error => alert(error));
+}
 
 const Contact = (props) => (
     <section id="contact">
         <div className="inner">
             <section>
-                <form name="contact" method="POST" netlify-honeypot="bot-field" netlify action="/success">
+                <form name="contact" method="POST" netlify-honeypot="bot-field" action="/success/" data-netlify="true" onSubmit={handleSubmit}>
                     <p class="hidden">
                         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                        <input type="hidden" name="form-name" value="contact" />
                     </p>
                     <div className="field half first">
                         <label htmlFor="name">Name</label>
