@@ -1,5 +1,5 @@
 import React from 'react'
-import { navigateTo } from "gatsby-link"
+import { navigate } from "gatsby-link"
 
 function encode(data) {
     return Object.keys(data)
@@ -21,7 +21,7 @@ const handleSubmit = e => {
         "message": form.getAttribute("message")
       })
     })
-      .then(() => navigateTo(form.getAttribute("action")))
+      .then(() => navigate(form.getAttribute("action")))
       .catch(error => alert(error));
 }
 
