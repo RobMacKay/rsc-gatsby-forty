@@ -14,8 +14,10 @@ const handleSubmit = e => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": form.getAttribute("name"),
-        ...form
+        "form-name": form.getAttribute("form-name"),
+        "name": form.getAttribute("name"),
+        "email": form.getAttribute("email"),
+        "message": form.getAttribute("message")
       })
     })
       .then(() => navigateTo(form.getAttribute("action")))
