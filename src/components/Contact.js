@@ -33,7 +33,7 @@ const Contact = (props) => (
     <section id="contact">
         <div className="inner">
             <section>
-                <form id="contact" name="contact" method="POST" netlify-honeypot="bot-field" action="/success/" data-netlify="true" onSubmit={handleSubmit}>
+                <form name="contact" method="POST" netlify-honeypot="bot-field" action="/success/" data-netlify="true" onSubmit={handleSubmit}>
                     <p className="hidden">
                         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
                         <input type="hidden" name="form-name" value="contact" />
