@@ -10,6 +10,7 @@ function encode(data) {
 const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
+    console.log(form);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
