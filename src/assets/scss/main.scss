@@ -88,7 +88,7 @@
 		height: auto;
 		margin: 1rem 1rem 1rem 0;
 		@include breakpoint(small) { 
-			width: 100%;
+			width: 50%;
 			margin: 1rem 0;
 		}
 	}
