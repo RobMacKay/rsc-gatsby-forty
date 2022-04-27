@@ -59,9 +59,12 @@ const Contact = (props) => (
             <section className="split">
                 <section>
                     <div className="contact-method">
-                        <span className="icon alt fa-envelope"></span>
-                        <h3>Email</h3>
-                        <a href="mailto:information@rscmedia.co.uk">information@rscmedia.co.uk</a>
+                        <div>
+                            <span className="icon alt fa-envelope"></span>
+                            <h3>Email</h3>
+                            <a href="mailto:information@rscmedia.co.uk">information@rscmedia.co.uk</a>
+                        </div>
+                        <iframe title="RSC Media Discord" src="https://discord.com/widget?id=968842158842994819&theme=dark" width="350" height="500" allowTransparency="true" frameBorder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" />
                     </div>
                 </section>
             </section>
